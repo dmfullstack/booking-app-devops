@@ -37,7 +37,7 @@ apply
 save
 
 Go to New Item:
-Project name: <some Name>, freestyle project
+Project name: <some Name>, choose freestyle project
 check GitHub Project
 add url (from browser)
 Source Code Management: Git
