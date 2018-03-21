@@ -8,7 +8,6 @@
         <groupId>com.jdum.booking</groupId>
         <artifactId>booking-base</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
 
     <artifactId>booking-common</artifactId>
