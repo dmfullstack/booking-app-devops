@@ -9,8 +9,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <!--<modules>-->
-    <!--<module>base</module>-->
+  <modules>
+    <module>base</module>
     <!--<module>common</module>-->
     <!--<module>book</module>-->
     <!--<module>checkin</module>-->
@@ -18,5 +18,5 @@
     <!--<module>search</module>-->
     <!--<module>webface</module>-->
     <!--<module>monitoring</module>-->
-  <!--</modules>-->
+  </modules>
 </project>
