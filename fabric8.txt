@@ -1,0 +1,25 @@
+push image to registry:
+
+in settings.xml add server:
+
+<server>
+    <id>registry.hub.docker.com</id>
+    <username></username>
+    <password></password>
+    <configuration>
+        <email></email>
+    </configuration>
+</server>
+
+Note!!! image should me like: registry_name/artifactId:version
+To override image name, add profiles.yaml to src/main/fabric8:
+
+- name: default
+  generator:
+    includes:
+      - spring-boot
+    config:
+      spring-boot:
+        name: multiplexor88/%a:%v #this last line will override image name
+
+run mvn clean install fabric8:push

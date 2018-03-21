@@ -11,3 +11,43 @@ kubectl exec -it ${JENKINS_POD_NAME} -- /bin/bash
 
 cat /var/.../initPassword..
 copy 1 line, past into window
+
+------------------------------------
+Install jenkins on docker localhost
+------------------------------------
+docker pull jenkins
+docker run -d -p 49001:8080 -v $PWD/jenkins:/var/jenkins_home:z -t jenkins
+docker exec -ti <container id> /bin/bash
+cd /var/jenkins_home
+
+mkdir .ssh
+ssh-keygen -t rsa -C 'jenkins@example.com'
+
+in git repo add deploy key from generated rsa.pub
+
+go to Jenkins -> credentials -> global -> add credentials:
+Kind: SSH Username...
+Private key: From Jenkins master ./ssh
+add some description
+save
+
+Go to Manage Jenkins -> Global tools configuration -> Maven:
+Name: Maven 3.3.9
+apply
+save
+
+Go to New Item:
+Project name: <some Name>, freestyle project
+check GitHub Project
+add url (from browser)
+Source Code Management: Git
+copy ssh repo url and select previously added Jenkins credentials
+Build triggers: github hook trigger ...
+Build: choose maven version (3.3.9), goals: clean install
+apply, save
+go to home page and click Build now
+
+go to github -> setting -> web hooks:
+add web hook:
+add jenkins url/github-webhook/
+save
