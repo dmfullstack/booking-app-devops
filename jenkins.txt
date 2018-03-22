@@ -16,7 +16,7 @@ copy 1 line, past into window
 Install jenkins on docker localhost
 ------------------------------------
 docker pull jenkins
-docker run -d -p 49001:8080 -v $PWD/jenkins:/var/jenkins_home:z -t jenkins
+docker run -d -p 9080:8080 -v $PWD/jenkins:/var/jenkins_home:z -t jenkins
 docker exec -ti <container id> /bin/bash
 cd /var/jenkins_home
 
@@ -43,7 +43,7 @@ add url (from browser)
 Source Code Management: Git
 copy ssh repo url and select previously added Jenkins credentials
 Build triggers: github hook trigger ...
-Build: choose maven version (3.3.9), goals: clean install
+Build: choose maven version, goals: clean install
 apply, save
 go to home page and click Build now
 
